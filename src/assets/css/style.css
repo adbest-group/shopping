@@ -1,0 +1,52 @@
+﻿/*====================  ====================*/
+.brand-filter{ background-color: #fff; box-shadow: 0 0 2px rgba(0,0,0,0.1); border-bottom: 1px solid #f2f2f2; padding: 10px 10px 0}
+.brand-filter dl{ display: block; overflow: hidden; _zoom:1; margin: 5px 0}
+.brand-filter dl dt{ float: left; font-size: 14px; line-height: 25px}
+.brand-filter dl dd a{height:25px;line-height:25px;padding:0 8px;display:block;float:left;margin-right:7px;margin-bottom:10PX;background:#f5f5f5;color:#666;text-decoration:none;border-radius:3px}
+.brand-filter dl dd a:hover, .brand-filter dl dd a.on{background:#ff2069;color:#fff}
+
+/*==================== 产品 ====================*/
+.pic{text-align:center; position:relative; display:table-cell; vertical-align:middle}
+.pic .subpic{*position:absolute; top:50%; left:50%}
+.pic .subpic img{*position:relative; top:-50%; left:-50%}
+
+.product{ box-shadow: 0 0 2px rgba(0,0,0,0.1)}
+.product-item{ padding-bottom: 10px; height: 190px; border-bottom: 1px solid #f2f2f2; position: relative; background-color:#fff}
+.product-item .title{ height: 50px; top: 20px;line-height: 25px; position: absolute; left: 220px; color: #444; overflow: hidden; font-weight: 500; font-size: 17px; padding-right: 10px}
+.product-item .info{ position: absolute; left: 220px; top: 75px; color: #999; line-height: 20px; height: 80px; overflow: hidden; font-size: 13px; padding-right: 20px}
+.product-item .pic{width: 200px;height: 200px}
+.product-item .pic .subpic img{ max-width: 180px; max-height: 180px; vertical-align: top}
+.product-item .tobuywordBtn{ background-color: #ff2069; font-family: Arial; font-size: 14px; color: #fff; text-decoration: none; width: 95px; height: 30px; text-align: center; line-height: 30px; display: inline-block; position: absolute; bottom: 15px; right: 20px; border-radius: 3px; font-weight: 600}
+.product-item .tobuywordBtn:hover{ background-color: #e91e6f}
+.product-item .rightmall{ position: absolute; bottom: 25px; right: 125px; color: #444}
+.product-item .rightmall a{ color: #323232; font-weight: 500; font-family: Arial}
+
+
+
+
+.rank .hd{ height: 25px; line-height: 25px;padding: 8px; background-color: #fff; border-bottom: 1px solid #dedede}
+.rank .hd h3{ font-size: 15px; float: left; line-height: 15px; margin-top: 6px; font-weight: 600}
+.rank .hd h3:before{ content: " "; border-left: 3px solid #ff2069; margin-top: 3px; margin-right: 8px}
+.rank .product-item{ padding: 5px; height: 70px}
+.rank .product-item .title{ height: 50px; top: 10px;line-height: 25px;left: 80px; font-size: 15px}
+.rank .product-item .pic{width: 70px;height: 70px}
+.rank .product-item .pic .subpic img{ max-width: 60px; max-height: 60px; vertical-align: top}
+
+
+.crumbs{ color:#999; font-size:12px; height:40px; line-height:40px; border-bottom:1px solid #f2f2f2; background-color: #fff; padding-left: 10px}
+.crumbsCate{ display:inline}
+.crumbs .arrow,span.arrow{ font-family:"SimSun";padding:0 4px}
+.crumbs a{ color:#444; font-family: Arial}
+.crumbs a:hover{ color:#ff2069}
+
+
+.product.detail .detail-info{ min-height: 380px; background-color: #fff; position: relative; padding: 10px 10px 10px 320px}
+.product.detail .detail-info .title{ line-height: 25px; color: #444; overflow: hidden; font-weight: 500; font-size: 17px; margin-bottom: 20px}
+.product.detail .detail-info p{ color: #999; line-height: 20px; overflow: hidden; font-size: 13px; margin: 10px 0}
+.product.detail .picInfo{ position: absolute; left: 0; top: 0; text-align: center; font-size: 14px}
+.product.detail .picInfo .pic{width: 300px;height: 300px}
+.product.detail .picInfo .pic .subpic img{ max-width: 280px; max-height: 280px; vertical-align: top}
+.product.detail .picInfo .tobuywordBtn{ background-color: #ff2069; font-family: Arial; font-size: 16px; color: #fff; text-decoration: none; width: 135px; height: 40px; text-align: center; line-height: 40px; display: inline-block; border-radius: 3px; margin-top: 10px}
+.product.detail .picInfo .tobuywordBtn:hover{ background-color: #e91e6f}
+.product.detail .picInfo .rightmall{ margin-top: 15px}
+.product.detail .picInfo .rightmall a{ color: #ff2069; font-size: 14px; font-family: Arial}
