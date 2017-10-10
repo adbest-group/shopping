@@ -4,3 +4,7 @@ export default
 {
   attachPath,
 }
+
+
+//api 地址
+export const apiUrl ='http://172.16.88.14:8081/api';

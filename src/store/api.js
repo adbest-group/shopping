@@ -1,11 +1,11 @@
 import axios from 'axios'
 import qs from 'qs';
-
+import {apiUrl} from '../utils/Global'
 //todo  post请求时 qs操作和 配置头参数 的公有化...
 
 //配置axios 默认地址
 const defaults = {
-  baseURL: 'http://172.16.88.14:8081/api',
+  baseURL: apiUrl,
   //baseURL: 'http://127.0.0.1:8085',
 }
 Object.assign(axios.defaults, defaults)
