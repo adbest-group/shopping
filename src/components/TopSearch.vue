@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="navBar clearfix">
       <div class="nav-inner">
         <ul>
@@ -49,10 +48,16 @@
           var text = this.search.trim();
           if(text){
             this.changePage(text)
-            this.search = '';
+//            this.search = '';
           }
         }
+      },
+      watch:{
+        '$route' (to, from) {
+          this.search=to.query.key;
+        }
       }
+
     }
 </script>
 <style>

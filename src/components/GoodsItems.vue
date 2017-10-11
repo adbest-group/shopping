@@ -14,7 +14,9 @@
           </router-link>
           <a :href='p.url' class="tobuywordBtn" target="_blank">Link</a>
           <div class="rightmall">
-            {{p.syncTime}}　<a class="mallBtn" :href='p.url' target="_blank" title="">{{p.mallName}}</a>
+            <!--{{p.syncTime}}-->
+            　{{changeTime(p.syncTime)}}
+            <a class="mallBtn" :href='p.url' target="_blank" title="">{{p.mallName}}</a>
           </div>
         </div>
       </div>
@@ -46,6 +48,11 @@
         default:[]
       }
     },
+    methods: {
+      changeTime: function(time) {
+        return changeTime(time);
+      }
+    }
   }
 </script>
 

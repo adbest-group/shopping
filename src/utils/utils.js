@@ -13,8 +13,67 @@ export const  createUrl=obj=>{
 }
 
 //将 毫秒数的时间换算成 展示时间
-export const changeTime=time=>{
-    //1506590567000
- return time.getFullYear() + "年" + (time.getMonth() + 1) + "月" + time.getDate() + "日 " + time.getHours() + "点" + time.getMinutes() + "分" + time.getSeconds() + "秒";
+export const changeTime=t=>{
+  var publishTime = parseInt(t)/ 1000,
+    d_seconds,
+    d_minutes,
+    d_hours,
+    d_days,
+    timeNow = parseInt(new Date().getTime() / 1000),
+    d,
 
+    date = new Date(publishTime * 1000),
+    Y = date.getFullYear(),
+    M = date.getMonth() + 1,
+    D = date.getDate(),
+    H = date.getHours(),
+    m = date.getMinutes(),
+    s = date.getSeconds();
+  //小于10的在前面补0
+  if (M < 10) {
+    M = '0' + M;
+  }
+  if (D < 10) {
+    D = '0' + D;
+  }
+  if (H < 10) {
+    H = '0' + H;
+  }
+  if (m < 10) {
+    m = '0' + m;
+  }
+  if (s < 10) {
+    s = '0' + s;
+  }
+
+  d = timeNow - publishTime;
+  d_days = parseInt(d / 86400);
+  d_hours = parseInt(d / 3600);
+  d_minutes = parseInt(d / 60);
+  d_seconds = parseInt(d);
+
+  if (d_days > 0 && d_days < 3) {
+    return d_days + ' days ago';
+  } else if (d_days <= 0 && d_hours > 0) {
+    return d_hours + ' hours ago';
+  } else if (d_hours <= 0 && d_minutes > 0) {
+    return d_minutes + ' minute ago';
+  } else if (d_seconds < 60) {
+    if (d_seconds <= 0) {
+      return 'just';
+    } else {
+      return d_seconds + ' seconds ago';
+    }
+  } else if (d_days >= 3 && d_days < 30) {
+    return M + '-' + D + ' ' + H + ':' + m;
+  } else if (d_days >= 30) {
+    return Y + '-' + M + '-' + D + ' ' + H + ':' + m;
+  }
+
+}
+
+
+//将 HTML<a>中的调转地址 去掉
+export const ignoreLink=h=>{
+  return   h.replace(/href=\"(.*?)\"/g, "href=\"Javascript:;\"")
 }

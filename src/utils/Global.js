@@ -8,3 +8,4 @@ export default
 
 //api 地址
 export const apiUrl ='http://172.16.88.14:8081/api';
+//export const apiUrl ='http://127.0.0.1:8085';

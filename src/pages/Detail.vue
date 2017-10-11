@@ -16,13 +16,14 @@
               </div>
               <a :href='goodsDetail.url' class="tobuywordBtn">Buy Now</a>
               <div class="rightmall">
-                14:39 <a class="mallBtn" :href='goodsDetail.url' target="_blank" title="">{{goodsDetail.mallName}}</a>
+                　{{changeTime(goodsDetail.syncTime)}}
+             <a class="mallBtn" :href='goodsDetail.url' target="_blank" title="">{{goodsDetail.mallName}}</a>
               </div>
             </div>
             <div class="title">{{goodsDetail.title}}</div>
             <p>
-              <span v-html="goodsDetail.contentHtml">
-                 {{goodsDetail.contentHtml}}
+              <span v-html="ignoreLink(goodsDetail.contentHtml)">
+                 {{ignoreLink(goodsDetail.contentHtml)}}
               </span>
             </p>
           </div>
@@ -54,6 +55,7 @@
   import RightBanner from '../components/RightBanner.vue'
   import gtFooter from '../components/Footer.vue'
   import { mapActions, mapState } from 'vuex'
+  import {ignoreLink,changeTime} from '../utils/utils'
 
   export default{
     name:'detail',
@@ -71,7 +73,15 @@
     this.$store.dispatch('getHotGoods');
     this.$store.dispatch('getHotWords')
     this.$store.dispatch('getGoodsDetail',{id:this.$route.params.id})
+    },
+  methods: {
+    changeTime: function(time) {
+      return changeTime(time);
+    },
+    ignoreLink:function (html){
+      return ignoreLink(html)
     }
+   }
   }
 </script>
 
