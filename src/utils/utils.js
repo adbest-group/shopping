@@ -75,5 +75,6 @@ export const changeTime=t=>{
 
 //将 HTML<a>中的调转地址 去掉
 export const ignoreLink=h=>{
-  return   h.replace(/href=\"(.*?)\"/g, "href=\"Javascript:;\"")
+  //return   h.replace(/href=\"(.*?)\"/g, "href=\"Javascript:;\"")
+  return   h.replace(/href=\"(.*?)\"/g, "")
 }
