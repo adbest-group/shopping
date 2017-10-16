@@ -1,6 +1,7 @@
 <template>
   <div>
     <top-search :hotWords='hotWords'></top-search>
+    <banner></banner>
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
@@ -25,6 +26,7 @@
 </template>
 <script>
   import TopSearch from '../components/TopSearch.vue'
+  import Banner from '../components/Banner.vue'
   import Navigation from '../components/Navigation.vue'
   import GoodsItems from '../components/GoodsItems.vue'
   import HotGoods from '../components/HotGoods.vue'
@@ -38,6 +40,7 @@
   name:'index',
   components:{
     TopSearch,
+    Banner,
     Navigation,
     GoodsItems,
     HotGoods,

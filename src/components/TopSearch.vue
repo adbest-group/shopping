@@ -3,7 +3,7 @@
     <div class="headBar clearfix">
       <div class="headBar-inner">
         <div class="inner">
-          <a href="#" class="logo">GO BUY!</a>
+          <a href="#" class="logo"><img src="../assets/logo.png"></a>
           <div class="search">
             <div class="search-box">
               <input type="text" class="search-txt" v-model="search" @keyup.enter="doSearch">
