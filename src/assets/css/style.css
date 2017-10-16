@@ -13,6 +13,8 @@
 .product{ box-shadow: 0 0 2px rgba(0,0,0,0.1)}
 .product-item{ padding-bottom: 10px; height: 190px; border-bottom: 1px solid #f2f2f2; position: relative; background-color:#fff}
 .product-item .title{ height: 50px; top: 20px;line-height: 25px; position: absolute; left: 220px; color: #444; overflow: hidden; font-weight: 500; font-size: 17px; padding-right: 10px}
+.product-item .title span{color:#d42f2f;font-weight: bold;padding-right: 5px}
+.product-item .title span i{    text-decoration: line-through; font-style: normal;}
 .product-item .info{ position: absolute; left: 220px; top: 75px; color: #999; line-height: 20px; height: 80px; overflow: hidden; font-size: 13px; padding-right: 20px}
 .product-item .pic{width: 200px;height: 200px}
 .product-item .pic .subpic img{ max-width: 180px; max-height: 180px; vertical-align: top}

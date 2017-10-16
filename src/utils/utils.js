@@ -78,3 +78,9 @@ export const ignoreLink=h=>{
   //return   h.replace(/href=\"(.*?)\"/g, "href=\"Javascript:;\"")
   return   h.replace(/href=\"(.*?)\"/g, "")
 }
+//根据原价与现价 算出 打折比率
+export const getOff=(price,originalPrice)=>{
+      price =price.split("$")[1];
+      originalPrice =originalPrice.split("$")[1];
+    return   Math.ceil(100-price/originalPrice*100);
+}

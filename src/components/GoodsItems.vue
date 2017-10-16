@@ -7,7 +7,11 @@
             <div class="pic">
               <div class="subpic"><img :src="p.smallImageUrl"></div>
             </div>
-            <p class="title">{{p.title}}</p>
+            <p class="title">
+              <span v-if="p.discounts">{{p.discounts}}</span>
+              <span v-if="!p.discounts&&p.originalPrice">{{p.price}}(<i>{{p.originalPrice}}</i>,{{getOff(p.price,p.originalPrice)}} off)</span>
+              <span v-if="!p.discounts&&!p.originalPrice">{{p.price}}</span>
+              {{p.title}}</p>
             <p class="info">
               {{p.shortContent}}
             </p>
@@ -40,7 +44,7 @@
 
 </template>
 <script>
-  import {changeTime} from '../utils/utils';
+  import {changeTime,getOff} from '../utils/utils';
   export default {
     name:'goodItems',
     props:{
@@ -51,6 +55,9 @@
     methods: {
       changeTime: function(time) {
         return changeTime(time);
+      },
+      getOff:function(price,originalPrice){
+        return getOff(price,originalPrice);
       }
     }
   }
