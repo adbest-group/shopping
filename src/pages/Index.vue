@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div v-title>home</div>
     <top-search :hotWords='hotWords'></top-search>
     <banner></banner>
     <div id="main" class="clearfix">
