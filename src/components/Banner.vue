@@ -1,11 +1,11 @@
 <template>
 	<div class="banner">
-		<img src="../assets/images/banner.jpg" alt="">
+		<img src="../assets/images/banner2.jpg" alt="">
 	</div>
 </template>
 
 <script>
-	
+
 </script>
 
 <style>
