@@ -9,7 +9,7 @@
       </div>
       <div id="content">
         <navigation :malls="malls" :categorys='categorys' v-if="flag"></navigation>
-        <a class="feednotify" v-if="goodsNotify>10"  @click="getGoodsList($route.query)">
+        <a class="feednotify" v-if="goodsNotify>criticalNotifyNum"  @click="getGoodsList($route.query)">
           <span>●</span>
           <span>There are {{goodsNotify}} new entries for this view ></span>
         </a>
@@ -39,6 +39,7 @@
   import Paginate from 'vuejs-paginate'
   import qs from 'qs';
   import { mapActions, mapState,mapGetters } from 'vuex'
+  import { autoFetchTime, criticalNotifyNum } from '../utils/Global'
 
   export default{
   name:'index',
@@ -52,7 +53,11 @@
     gtFooter,
     Paginate
   },
-
+    data () {
+      return {
+        criticalNotifyNum: criticalNotifyNum,
+      }
+    },
     methods: {    //绑定事件的关键代码
       changePage: function(i){
         var obj =Object.assign({}, this.$route.query, {page:i})
@@ -99,7 +104,7 @@
         if(this.goodsList&&!this.$route.query.key){
           this.getGoodsNotify(Object.assign({},this.$route.query,{id:this.goodsList[0].id,sync:this.goodsList[0].syncTime}));
        }
-     },30000);
+     },autoFetchTime);
 
   },
   watch:{
