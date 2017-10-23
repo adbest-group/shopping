@@ -1,15 +1,19 @@
 <template>
   <div>
-    <top-search :hotWords='hotWords'></top-search>
+    <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd'></top-search>
     <banner></banner>
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
-        <hot-goods :hotGoods='hotGoods'></hot-goods>
+        <hot-goods :hotGoods='hotGoods' :behaviorFun='getBehaviorAdd'></hot-goods>
       </div>
       <div id="content">
         <navigation :malls="malls" :categorys='categorys' v-if="flag"></navigation>
-        <goods-items :goodsList='goodsList'></goods-items>
+        <a class="feednotify" v-if="goodsNotify>10"  @click="getGoodsList($route.query)">
+          <span>●</span>
+          <span>There are {{goodsNotify}} new entries for this view ></span>
+        </a>
+        <goods-items :goodsList='goodsList' :behaviorFun='getBehaviorAdd' :getThumbsAdd="getThumbsAdd"></goods-items>
         <div class="pageBar clearfix">
           <paginate
             :page-count="getPageCount"
@@ -56,48 +60,60 @@
         this.$router.push({path:'/?'+d})
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
-      }
+      },
+      ...mapActions([
+        'getHotGoods',
+        'getMalls',
+        'getCategorys',
+        'getHotWords',
+        'getGoodsList',
+        'getGoodsNotify',
+        'getSearchList',
+        'getBehaviorAdd',
+        'getThumbsAdd'
+        ])
     },
-//    data() {
-//      return {
-//        flag(){
-//          if(this.$route.query.key){return false}
-//          else return true;
-//        }
-//      }
-//    },
-
   computed: {
     ...mapGetters(['getPageCount']),
-    ...mapState(['hotWords','goodsList','hotGoods','malls','categorys','goodsPageIndex']),
+    ...mapState(['hotWords','goodsList','hotGoods','malls','categorys','goodsPageIndex','goodsNotify']),
     flag(){
       if(this.$route.query.key){return false}
       else return true;
     }
   },
   created () {
-    this.$store.dispatch('getHotGoods');
-    this.$store.dispatch('getMalls');
-    this.$store.dispatch('getCategorys');
-    this.$store.dispatch('getHotWords');
+    this.getHotGoods();
+    this.getMalls();
+    this.getCategorys();
+    this.getHotWords();
     if(this.$route.query.key){
-      this.$store.dispatch('getSearchList',this.$route.query);
+      this.getSearchList(this.$route.query);
     }
     else {
-      this.$store.dispatch('getGoodsList',this.$route.query);
-    }
+      this.getGoodsList(this.$route.query);
+    };
+
+    //定时请求任务  获取新增条目数;
+    this.intervalid = setInterval(() => {
+        //原数据中没有 goodsList 或者 this.$route.query.key存在时 不求数据
+        if(this.goodsList&&!this.$route.query.key){
+          this.getGoodsNotify(Object.assign({},this.$route.query,{id:this.goodsList[0].id,sync:this.goodsList[0].syncTime}));
+       }
+     },30000);
+
   },
   watch:{
     '$route' (to, from) {
       if(to.query.key){
-        this.$store.dispatch('getSearchList',to.query);
+        this.getSearchList(to.query);
       }
       else{
-        this.$store.dispatch('getGoodsList',to.query);
+        this.getGoodsList(to.query);
       }
     }
-  }
-
+  },
+  beforeDestroy () {
+    clearInterval(this.intervalid)
+    },
   }
 </script>
-

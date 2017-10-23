@@ -9,6 +9,7 @@ export default {
     state.goodsList=data.list;
     state.goodsTotalCount=data.totalCount;
     state.goodsPageSize=data.pageSize;
+    state.goodsNotify=0;
     state.goodsPageIndex=parseInt(data.pageIndex);
   },
   [types.GET_GOODS_DETAIL] (state,  data ) {
@@ -23,4 +24,18 @@ export default {
   [types.GET_CATEGORYS] (state,  data ) {
     state.categorys=data
   },
+  [types.GET_GOODS_NOTIFY] (state,  data ) {
+    state.goodsNotify=data
+  },
+  [types.GET_THUMBS_ADD] (state,  data ) {
+    //返回的 data.data 不用..但是传过来了.
+    let  id  = data.payload.id;
+    let   d = data.data;
+    state.goodsList.forEach(function(val,index){
+      if(id==val.id){
+        state.goodsList[index].thumbs=d.thumbs;
+      }
+    })
+  },
 }
+

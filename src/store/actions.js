@@ -53,3 +53,25 @@ export const getCategorys = ({ commit }) => {
   })
 }
 
+
+//获取新增商品的条目数
+export const getGoodsNotify = ({ commit },payload) => {
+  api.fetchGoodsList(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_GOODS_NOTIFY, data.result.totalCount)
+  })
+}
+
+//用户行为统计记录
+export const getBehaviorAdd = ({ commit },payload) => {
+  api.fetchBehaviorAdd(payload).then(({data}) => {
+      console.log('用户行为已上传');
+  })
+}
+
+//用户增加点赞数
+export const getThumbsAdd = ({ commit },payload) => {
+  api.fetchThumbsAdd(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_THUMBS_ADD,{data:data.result,payload:payload} )
+  })
+}
+

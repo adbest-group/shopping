@@ -13,8 +13,8 @@
 .product{ box-shadow: 0 0 2px rgba(0,0,0,0.1)}
 .product-item{ padding-bottom: 10px; height: 190px; border-bottom: 1px solid #f2f2f2; position: relative; background-color:#fff}
 .product-item .title{ height: 50px; top: 20px;line-height: 25px; position: absolute; left: 220px; color: #444; overflow: hidden; font-weight: 500; font-size: 17px; padding-right: 10px}
-.product-item .title span{color:#d42f2f;font-weight: bold;padding-right: 5px}
-.product-item .title span i{    text-decoration: line-through; font-style: normal;}
+.product.detail .detail-info .title span,.product-item .title span{color:#d42f2f;font-weight: bold;padding-right: 5px}
+.product.detail .detail-info .title span i,.product-item .title span i{    text-decoration: line-through; font-style: normal;}
 .product-item .info{ position: absolute; left: 220px; top: 75px; color: #999; line-height: 20px; height: 80px; overflow: hidden; font-size: 13px; padding-right: 20px}
 .product-item .pic{width: 200px;height: 200px}
 .product-item .pic .subpic img{ max-width: 180px; max-height: 180px; vertical-align: top}
@@ -22,7 +22,9 @@
 .product-item .tobuywordBtn:hover{ background-color: #e91e6f}
 .product-item .rightmall{ position: absolute; bottom: 25px; right: 125px; color: #48a753}
 .product-item .rightmall a{ color: #323232; font-weight: 500; font-family: Arial}
-
+.product-item .upvote{position: absolute;left:220px;bottom:60px;cursor: pointer}
+.product-item .upvote .upvoteNum{position: absolute;left:45px;top:0px;line-height: 55px ;color: #aaa}
+.product-item .upvote .upvoteNum:hover{color:#eb7350}
 
 
 
@@ -52,3 +54,7 @@
 .product.detail .picInfo .tobuywordBtn:hover{ background-color: #e91e6f}
 .product.detail .picInfo .rightmall{ margin-top: 15px}
 .product.detail .picInfo .rightmall a{ color: #ff2069; font-size: 14px; font-family: Arial}
+
+.feednotify{background: #e7f6e7;display: block;text-align: center;box-shadow: 0 1px 2px rgba(0,0,0,0.1);  cursor: pointer;}
+.feednotify span:nth-child(2){line-height: 350%;  color: #5db95b;  font-size: 13px;}
+.feednotify span:nth-child(1){ line-height: 350%;  color: #ff998a;  font-size: 13px;}

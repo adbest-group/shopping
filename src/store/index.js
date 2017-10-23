@@ -22,6 +22,7 @@ const state = {
     goodsTotalCount:0,
     goodsPageSize:1,
     goodsPageIndex:1,
+    goodsNotify:0,
 }
 
 export default new Vuex.Store({

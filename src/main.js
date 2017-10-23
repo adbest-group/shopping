@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import Icon from 'vue-svg-icon/Icon.vue';
+
 
 Vue.config.productionTip = false
 
@@ -13,6 +15,8 @@ Vue.directive('title', {
     el.remove()
   }
 })
+
+Vue.component('icon', Icon);
 
 new Vue({
   el: '#app',

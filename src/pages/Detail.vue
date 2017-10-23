@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top-search :hotWords='hotWords'></top-search>
+    <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd'></top-search>
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
@@ -14,16 +14,20 @@
               <div class="pic">
                 <div class="subpic"><img :src="goodsDetail.smallImageUrl"></div>
               </div>
-              <a :href='goodsDetail.url' class="tobuywordBtn">Buy Now</a>
+              <a :href='goodsDetail.url' class="tobuywordBtn" @click="getBehaviorAdd({type:'2',url:$route.fullPath,goodId:goodsDetail.id})">Buy Now</a>
               <div class="rightmall">
                 　{{changeTime(goodsDetail.syncTime)}}
              <a class="mallBtn" :href='goodsDetail.url' target="_blank" title="">{{goodsDetail.mallName}}</a>
               </div>
             </div>
-            <div class="title">{{goodsDetail.title}}</div>
+            <div class="title">
+              <span v-if="goodsDetail.discounts">{{goodsDetail.discounts}}</span>
+              <span v-if="!goodsDetail.discounts&&goodsDetail.originalPrice">{{goodsDetail.price}}(<i>{{goodsDetail.originalPrice}}</i>,{{getOff(goodsDetail.price,goodsDetail.originalPrice)}} off)</span>
+              <span v-if="!goodsDetail.discounts&&!goodsDetail.originalPrice">{{goodsDetail.price}}</span>
+              {{goodsDetail.title}}</div>
             <p>
-              <span v-html="ignoreLink(goodsDetail.contentHtml)">
-                 {{ignoreLink(goodsDetail.contentHtml)}}
+              <span v-html="goodsDetail.contentHtml&&ignoreLink(goodsDetail.contentHtml)">
+                 {{goodsDetail.contentHtml&&ignoreLink(goodsDetail.contentHtml)}}
               </span>
             </p>
           </div>
@@ -55,7 +59,7 @@
   import RightBanner from '../components/RightBanner.vue'
   import gtFooter from '../components/Footer.vue'
   import { mapActions, mapState } from 'vuex'
-  import {ignoreLink,changeTime} from '../utils/utils'
+  import {ignoreLink,changeTime,getOff} from '../utils/utils'
 
   export default{
     name:'detail',
@@ -70,9 +74,9 @@
       ...mapState(['hotWords','hotGoods','goodsDetail'])
   },
   created () {
-    this.$store.dispatch('getHotGoods');
-    this.$store.dispatch('getHotWords')
-    this.$store.dispatch('getGoodsDetail',{id:this.$route.params.id})
+    this.getHotGoods();
+    this.getHotWords()
+    this.getGoodsDetail({id:this.$route.params.id})
     },
   methods: {
     changeTime: function(time) {
@@ -80,7 +84,16 @@
     },
     ignoreLink:function (html){
       return ignoreLink(html)
-    }
+    },
+    getOff:function(price,originalPrice){
+      return getOff(price,originalPrice);
+    },
+   ...mapActions([
+      'getHotGoods',
+      'getHotWords',
+      'getGoodsDetail',
+      'getBehaviorAdd'
+    ])
    }
   }
 </script>

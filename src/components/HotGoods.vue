@@ -7,7 +7,7 @@
         </div>
         <div class="inner">
           <div v-for="p in hotGoods" class="product-item">
-            <router-link :to="`/detail/${p.id}`" target="_blank">
+            <router-link :to="`/detail/${p.id}`" target="_blank" @click.native="behaviorFun({type:'1',url:$route.fullPath,goodId:p.id})">
               <div class="pic">
                 <div class="subpic"><img :src="p.smallImageUrl"></div>
               </div>
@@ -25,7 +25,10 @@
     props:{
       hotGoods:{
         default:[]
-      }
+      },
+      behaviorFun: {
+        type: Function,
+      },
     }
   }
 </script>

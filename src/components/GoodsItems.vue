@@ -3,7 +3,7 @@
     <div class="panel">
       <div class="product">
         <div v-for="p in goodsList" class="product-item">
-          <router-link :to="`detail/${p.id}`" target="_blank">
+          <router-link :to="`detail/${p.id}`" target="_blank" @click.native="behaviorFun({type:'1',url:$route.fullPath,goodId:p.id})">
             <div class="pic">
               <div class="subpic"><img :src="p.smallImageUrl"></div>
             </div>
@@ -16,11 +16,15 @@
               {{p.shortContent}}
             </p>
           </router-link>
-          <a :href='p.url' class="tobuywordBtn" target="_blank">Link</a>
+          <a :href='p.url' class="tobuywordBtn" target="_blank" @click="behaviorFun({type:'2',url:$route.fullPath,goodId:p.id})">Link</a>
           <div class="rightmall">
             <!--{{p.syncTime}}-->
             　{{changeTime(p.syncTime)}}
-            <a class="mallBtn" :href='p.url' target="_blank" title="">{{p.mallName}}</a>
+            <a class="mallBtn" :href='p.url' target="_blank" >{{p.mallName}}</a>
+          </div>
+          <div class='upvote'>
+            <upvote :getThumbsAdd="getThumbsAdd" :id="p.id"></upvote>
+            <span class="upvoteNum">{{p.thumbs}}</span>
           </div>
         </div>
       </div>
@@ -45,12 +49,22 @@
 </template>
 <script>
   import {changeTime,getOff} from '../utils/utils';
+  import upvote from '../components/Upvote.vue'
   export default {
     name:'goodItems',
     props:{
       goodsList:{
         default:[]
+      },
+      behaviorFun: {
+        type: Function,
+      },
+      getThumbsAdd:{
+        type: Function,
       }
+    },
+    components:{
+      upvote,
     },
     methods: {
       changeTime: function(time) {
@@ -58,7 +72,7 @@
       },
       getOff:function(price,originalPrice){
         return getOff(price,originalPrice);
-      }
+      },
     }
   }
 </script>
