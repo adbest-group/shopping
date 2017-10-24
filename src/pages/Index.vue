@@ -13,15 +13,21 @@
           <span>●</span>
           <span>There are {{goodsNotify}} new entries for this view ></span>
         </a>
-        <goods-items :goodsList='goodsList' :behaviorFun='getBehaviorAdd' :getThumbsAdd="getThumbsAdd"></goods-items>
-        <div class="pageBar clearfix">
-          <paginate
-            :page-count="getPageCount"
-            :click-handler="changePage"
-            :force-page="goodsPageIndex-1"
-            :prev-text="'&lt;&lt;'"
-            :next-text="'&gt;&gt;'">
-          </paginate>
+        <div v-if="goodsList">
+          <goods-items :goodsList='goodsList' :behaviorFun='getBehaviorAdd' :getThumbsAdd="getThumbsAdd"></goods-items>
+          <div class="pageBar clearfix">
+            <paginate
+              :page-range="5"
+              :page-count="getPageCount"
+              :click-handler="changePage"
+              :force-page="goodsPageIndex-1"
+              :prev-text="'&lt;&lt;'"
+              :next-text="'&gt;&gt;'">
+            </paginate>
+          </div>
+        </div>
+        <div v-if="!goodsList" class="search_no">
+          <div class="search_no_box">未找到相应的折扣信息...</div>
         </div>
       </div>
     </div>

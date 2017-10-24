@@ -68,10 +68,44 @@ export const getBehaviorAdd = ({ commit },payload) => {
   })
 }
 
-//用户增加点赞数
+//用户增加点赞数 列表页
 export const getThumbsAdd = ({ commit },payload) => {
   api.fetchThumbsAdd(payload).then(({data}) => {
     if(data.code==0)commit(types.GET_THUMBS_ADD,{data:data.result,payload:payload} )
   })
 }
 
+//用户增加点赞数 详情页
+export const getThumbsAddDetail = ({ commit },payload) => {
+  api.fetchThumbsAdd(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_THUMBS_ADD_DETAIL,data )
+  })
+}
+
+
+
+//联系我们接口 todo 等接口
+export const getContactUs = ({ commit },payload) => {
+  commit(types.CHANGE_CONTACT_US_FLAG,false )
+  setTimeout(function(){
+    commit(types.CHANGE_CONTACT_US_FLAG,true )
+  },3000);
+
+  //api.fetchContactUs(payload).then(({data}) => {
+  //  if(data.code==0)commit(types.CHANGE_CONTACT_US_FLAG,{data} )
+  //})
+}
+
+//获取猜你喜欢商品
+export const getMaybeLike = ({ commit },payload) => {
+  api.fetchMaybeLike(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_MAYBE_LIKE, data.result.list)
+  })
+}
+
+//获取商城热门 商品
+export const getMallHot = ({ commit },payload) => {
+  api.fetchMallHot(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_MALL_HOT, data.result.list)
+  })
+}

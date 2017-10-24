@@ -23,6 +23,9 @@ const state = {
     goodsPageSize:1,
     goodsPageIndex:1,
     goodsNotify:0,
+    contactUsFlag:false,//联系我们标记
+    maybeLike:[],//猜你喜欢
+    mallHot:[],//商城热门
 }
 
 export default new Vuex.Store({

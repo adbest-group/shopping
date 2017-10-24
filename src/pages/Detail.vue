@@ -19,6 +19,10 @@
                 　{{changeTime(goodsDetail.syncTime)}}
              <a class="mallBtn" :href='goodsDetail.url' target="_blank" title="">{{goodsDetail.mallName}}</a>
               </div>
+              <div class='detail-upvote'>
+                <upvote :getThumbsAdd="getThumbsAddDetail" :id="goodsDetail.goodId"></upvote>
+                <span class="upvoteNum">{{goodsDetail.thumbs}}</span>
+              </div>
             </div>
             <div class="title">
               <span v-if="goodsDetail.discounts">{{goodsDetail.discounts}}</span>
@@ -32,24 +36,11 @@
             </p>
           </div>
         </div>
+        <Recommend v-if="maybeLike>3" :list="maybeLike" hd="Deals and coupons you may like" :behaviorFun='getBehaviorAdd'></Recommend>
+        <Recommend v-if="mallHot.length>3" :list="mallHot" :hd="`${goodsDetail.mallName} hot goods`" :behaviorFun='getBehaviorAdd'></Recommend>
       </div>
     </div>
     <gt-footer></gt-footer>
-
-    <!--goodId":id,//商品编号-->
-    <!--"title":"id为"+id+"标题",//商品标题-->
-    <!--"smallImageUrl":"id为"+id+"商品列表图片",//商品列表图片-->
-    <!--"price":"id为"+id+"现价", //现价-->
-    <!--"originalPrice":"id为"+id+"原价",//原价-->
-    <!--"discounts":"id为"+id+"折扣信息",//折扣信息-->
-    <!--"coupons":"id为"+id+"优惠券",//优惠券-->
-    <!--"promoCode":"id为"+id+"促销码",//促销码-->
-    <!--"mallName":"id为"+id+"商城名称",//商城名称-->
-    <!--"goodSourceName":"id为"+id+"来源网站名",//来源网站名-->
-    <!--"shortContent":"id为"+id+"内容描述",//内容描述，已截取-->
-    <!--"url":"id为"+id+"商品购买链接",//商品购买链接-->
-    <!--"contentHtml":"id为"+id+"html格式内容",//html格式内容-->
-    <!--"syncTime":"id为"+id+"同步时间"//同步时间-->
   </div>
 </template>
 <script>
@@ -58,8 +49,11 @@
   import Crumbs from '../components/Crumbs.vue'
   import RightBanner from '../components/RightBanner.vue'
   import gtFooter from '../components/Footer.vue'
+  import upvote from '../components/Upvote.vue'
+  import Recommend from '../components/Recommend.vue'
   import { mapActions, mapState } from 'vuex'
   import {ignoreLink,changeTime,getOff} from '../utils/utils'
+
 
   export default{
     name:'detail',
@@ -68,14 +62,18 @@
       HotGoods,
       RightBanner,
       Crumbs,
-      gtFooter
+      gtFooter,
+      upvote,
+      Recommend
     },
     computed: {
-      ...mapState(['hotWords','hotGoods','goodsDetail'])
+      ...mapState(['hotWords','hotGoods','goodsDetail','mallHot','maybeLike'])
   },
   created () {
     this.getHotGoods();
     this.getHotWords()
+    this.getMaybeLike({id:this.$route.params.id})
+    this.getMallHot({id:this.$route.params.id})
     this.getGoodsDetail({id:this.$route.params.id})
     },
   methods: {
@@ -92,7 +90,10 @@
       'getHotGoods',
       'getHotWords',
       'getGoodsDetail',
-      'getBehaviorAdd'
+      'getBehaviorAdd',
+      'getThumbsAddDetail',
+      'getMaybeLike',
+      'getMallHot',
     ])
    }
   }

@@ -6,5 +6,7 @@ export const GET_MALLS = 'GET_MALLS'                       //获取商城列表
 export const GET_CATEGORYS = 'GET_CATEGORYS'                //获取商品类别
 export const GET_GOODS_NOTIFY = 'GET_GOODS_NOTIFY'           //获取新增商品的条目数
 export const GET_THUMBS_ADD = 'GET_THUMBS_ADD'              //增加点赞数
-
-
+export const GET_THUMBS_ADD_DETAIL = 'GET_THUMBS_ADD_DETAIL'         //增加点赞数 详情页
+export const CHANGE_CONTACT_US_FLAG='CHANGE_CONTACT_US_FLAG'  //更改contactUsFLag 的值
+export const GET_MAYBE_LIKE='GET_MAYBE_LIKE'        //获取猜你喜欢
+export const GET_MALL_HOT='GET_MALL_HOT'           //获取商城热门

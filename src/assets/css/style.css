@@ -25,7 +25,9 @@
 .product-item .upvote{position: absolute;left:220px;bottom:60px;cursor: pointer}
 .product-item .upvote .upvoteNum{position: absolute;left:45px;top:0px;line-height: 55px ;color: #aaa}
 .product-item .upvote .upvoteNum:hover{color:#eb7350}
-
+.detail-upvote{position: absolute;left:120px;top:375px;cursor: pointer}
+.detail-upvote .upvoteNum{position: absolute;left:45px;top:0px;line-height: 55px ;color: #aaa}
+.detail-upvote .upvoteNum:hover{color:#eb7350}
 
 
 .rank .hd{ height: 25px; line-height: 25px;padding: 8px; background-color: #fff; border-bottom: 1px solid #dedede}
@@ -44,7 +46,7 @@
 .crumbs a:hover{ color:#ff2069}
 
 
-.product.detail .detail-info{ min-height: 380px; background-color: #fff; position: relative; padding: 10px 10px 10px 320px}
+.product.detail .detail-info{ min-height: 400px; background-color: #fff; position: relative; padding: 10px 10px 10px 320px}
 .product.detail .detail-info .title{ line-height: 25px; color: #444; overflow: hidden; font-weight: 500; font-size: 17px; margin-bottom: 20px}
 .product.detail .detail-info p{ color: #999; line-height: 20px; overflow: hidden; font-size: 13px; margin: 10px 0}
 .product.detail .picInfo{ position: absolute; left: 0; top: 0; text-align: center; font-size: 14px}
@@ -58,3 +60,27 @@
 .feednotify{background: #e7f6e7;display: block;text-align: center;box-shadow: 0 1px 2px rgba(0,0,0,0.1);  cursor: pointer;}
 .feednotify span:nth-child(2){line-height: 350%;  color: #5db95b;  font-size: 13px;}
 .feednotify span:nth-child(1){ line-height: 350%;  color: #ff998a;  font-size: 13px;}
+
+.search_no{background: #fff}
+.search_no_box{  background: url(../images/no_items.jpg) no-repeat center 90px;  padding: 380px 0 130px;  text-align: center;  font-size: 16px;  }
+
+.appendix{background: #fff;min-height: 600px;padding: 20px 30px}
+.appendix h1{font-size: 20px;padding-bottom: 20px}
+.appendix p{font-size: 14px;line-height: 20px;margin-top: 10px;}
+.appendix .items{padding: 10px ;}
+.appendix .items span{font-size: 14px ;height: 22px;  line-height: 22px;font-weight: bold;width: 160px;display: block;}
+.appendix .items input{outline-style: none;  -webkit-appearance: none;width: 388px;  height: 22px;  line-height: 22px;  padding: 5px;  border: 1px solid #d2d2d2;  font: 12px "Arial";  color: #aaa;}
+.appendix .items textarea{outline-style: none;  -webkit-appearance: none;width: 388px;  height: 174px;  border: 1px solid #d3d3d3;  padding: 5px;  color: #aaa;    resize: none;font: 12px "Arial";vertical-align: middle;}
+.appendix .items .submit{width: 100px;height: 35px;background: #ff2069;text-align: center;line-height: 35px;margin-left: 144px;color: #fff;border-radius: 2px;cursor: pointer}
+.appendix .items .submit:hover{background: #e91e6f}
+
+/*推荐商品*/
+.recommending-commodities{margin-top: 10px}
+.recommending-commodities .item{width: 25%;background: #ffffff;float: left}
+.recommending-commodities .item a{width: 92%;margin: 4%;display: block;border: 1px solid #ffffff;cursor: pointer}
+.recommending-commodities .item a:hover{box-shadow:0 0 6px #ddd;}
+
+.recommending-commodities .item .pack{width: 92%;margin: 4%;display: block}
+.recommending-commodities .item .subpic{ width: 100%; }
+.recommending-commodities .item .subpic img{width:100%;background-size:cover;height: 160px}
+.recommending-commodities .item p{margin-top:10px;font-size:13px;height: 34px;line-height: 17px;display: -webkit-box;  -webkit-box-orient: vertical;  -webkit-line-clamp: 2;overflow: hidden;color: #999999}

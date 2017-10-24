@@ -37,5 +37,19 @@ export default {
       }
     })
   },
+  [types.GET_THUMBS_ADD_DETAIL] (state,  data ) {
+    console.log(data.result.thumbs);
+    console.log(state.goodsDetail.thumbs);
+    state.goodsDetail.thumbs=data.result.thumbs;
+  },
+  [types.CHANGE_CONTACT_US_FLAG] (state,  data ) {
+    state.contactUsFlag=data
+  },
+  [types.GET_MAYBE_LIKE] (state,  data ) {
+    state.maybeLike=data
+  },
+  [types.GET_MALL_HOT] (state,  data ) {
+    state.mallHot=data
+  },
 }
 

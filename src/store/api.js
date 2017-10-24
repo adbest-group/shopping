@@ -63,11 +63,30 @@ export const fetchBehaviorAdd = (data) => {
   return axios.post('/behavior/add',d)
 }
 
-//增加点赞数
+//增加点赞数 data 参数
+//id 商品id
 export const fetchThumbsAdd = (data) => {
   var d = qs.stringify(data);
   return axios.post('/goods/thumbs',d)
 }
 
+//联系我们接口 todo 等接口
+export const fetchContactUs = (data) => {
+  var d = qs.stringify(data);
+  return axios.post('/contactus',d)
+}
 
+//可能喜欢的商品 data 参数
+//id
+export const  fetchMaybeLike=(data)=>{
+  var d = qs.stringify(data);
+  return axios.post('/goods/maybelike',d)
+}
+
+//商城热门商品 data 参数
+//id
+export const  fetchMallHot=(data)=>{
+  var d = qs.stringify(data);
+  return axios.post('/goods/mallhot',d)
+}
 
