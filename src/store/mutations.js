@@ -43,7 +43,7 @@ export default {
     state.goodsDetail.thumbs=data.result.thumbs;
   },
   [types.CHANGE_CONTACT_US_FLAG] (state,  data ) {
-    state.contactUsFlag=data
+    state.contactUsFlag=true;
   },
   [types.GET_MAYBE_LIKE] (state,  data ) {
     state.maybeLike=data

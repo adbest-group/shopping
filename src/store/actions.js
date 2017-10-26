@@ -87,13 +87,9 @@ export const getThumbsAddDetail = ({ commit },payload) => {
 //联系我们接口 todo 等接口
 export const getContactUs = ({ commit },payload) => {
   commit(types.CHANGE_CONTACT_US_FLAG,false )
-  setTimeout(function(){
-    commit(types.CHANGE_CONTACT_US_FLAG,true )
-  },3000);
-
-  //api.fetchContactUs(payload).then(({data}) => {
-  //  if(data.code==0)commit(types.CHANGE_CONTACT_US_FLAG,{data} )
-  //})
+  api.fetchContactUs(payload).then(({data}) => {
+    if(data.code==0)commit(types.CHANGE_CONTACT_US_FLAG,{data} )
+  })
 }
 
 //获取猜你喜欢商品

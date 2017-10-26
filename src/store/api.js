@@ -73,7 +73,7 @@ export const fetchThumbsAdd = (data) => {
 //联系我们接口 todo 等接口
 export const fetchContactUs = (data) => {
   var d = qs.stringify(data);
-  return axios.post('/contactus',d)
+  return axios.post('/contact/add',d)
 }
 
 //可能喜欢的商品 data 参数
