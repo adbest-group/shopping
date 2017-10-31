@@ -10,3 +10,4 @@ export const GET_THUMBS_ADD_DETAIL = 'GET_THUMBS_ADD_DETAIL'         //增加点
 export const CHANGE_CONTACT_US_FLAG='CHANGE_CONTACT_US_FLAG'  //更改contactUsFLag 的值
 export const GET_MAYBE_LIKE='GET_MAYBE_LIKE'        //获取猜你喜欢
 export const GET_MALL_HOT='GET_MALL_HOT'           //获取商城热门
+export const GET_MAX_ID_SYNC='GET_MAX_ID_SYNC'           //获取商品 最高 id 和 时间

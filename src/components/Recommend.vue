@@ -9,7 +9,7 @@
         <div class="item" v-for="l in list" >
           <router-link class="clearfix" :to="`/detail/${l.id}`" target="_blank" @click.native="behaviorFun({type:'1',url:$route.fullPath,goodId:l.id})">
             <div class="pack">
-              <div class="subpic"><img :src="l.smallImageUrl"></div>
+              <div class="subpic"><img :src="l.smallImageUrl" :onerror="errorImg"></div>
               <p>{{l.title}}</p>
             </div>
           </router-link>
@@ -33,6 +33,9 @@
       getThumbsAdd:{
         type: Function,
       }
-    }
+    },
+    data: () => ({
+    errorImg: 'this.src="' + require('../assets/images/no_imgs.png') + '"'
+   })
   }
 </script>

@@ -53,15 +53,19 @@ export const changeTime=t=>{
   d_seconds = parseInt(d);
 
   if (d_days > 0 && d_days < 3) {
+    if(d_days==1)return  d_days + ' day ago';
     return d_days + ' days ago';
   } else if (d_days <= 0 && d_hours > 0) {
+    if(d_hours==1)return  d_hours + ' hour ago';
     return d_hours + ' hours ago';
   } else if (d_hours <= 0 && d_minutes > 0) {
-    return d_minutes + ' minute ago';
+    if(d_minutes==1)return  d_minutes + ' minute ago';
+    return d_minutes + ' minutes ago';
   } else if (d_seconds < 60) {
     if (d_seconds <= 0) {
       return 'just';
     } else {
+      if(d_seconds==1)return  d_seconds + ' second ago';
       return d_seconds + ' seconds ago';
     }
   } else if (d_days >= 3 && d_days < 30) {

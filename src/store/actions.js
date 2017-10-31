@@ -1,6 +1,8 @@
 import * as types from './mutation-types'
 import * as api from './api'
 import axios from 'axios'
+import NProgress from 'nprogress' // Progress 进度条
+import 'nprogress/nprogress.css'// Progress 进度条样式
 
 //todo  catch 错误和  res 中的判断
 
@@ -13,15 +15,22 @@ export const getHotWords = ({ commit }) => {
 
 //获取商品列表
 export const getGoodsList = ({ commit }, payload) => {
+  NProgress.start()
   api.fetchGoodsList(payload).then(({data}) => {
-    if(data.code==0)commit(types.GET_GOODS_LIST, data.result)
+    if(data.code==0){
+      commit(types.GET_GOODS_LIST, data.result)
+      commit(types.GET_MAX_ID_SYNC, data.result)
+      NProgress.done()
+    }
   })
 }
 
 //通过关键字 获取商品列表
 export const getSearchList = ({ commit }, payload) => {
+  NProgress.start()
   api.fetchSearchList(payload).then(({data}) => {
     if(data.code==0)commit(types.GET_GOODS_LIST, data.result)
+    NProgress.done()
   })
 }
 

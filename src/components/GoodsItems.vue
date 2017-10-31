@@ -5,7 +5,7 @@
         <div v-for="p in goodsList" class="product-item">
           <router-link :to="`detail/${p.id}`" target="_blank" @click.native="behaviorFun({type:'1',url:$route.fullPath,goodId:p.id})">
             <div class="pic">
-              <div class="subpic"><img :src="p.smallImageUrl"></div>
+              <div class="subpic"><img :src="p.smallImageUrl" :onerror="errorImg"></div>
             </div>
             <p class="title">
               <span v-if="p.discounts">{{p.discounts}}</span>
@@ -52,7 +52,10 @@
   import upvote from '../components/Upvote.vue'
   export default {
     name:'goodItems',
-    props:{
+    data: () => ({
+         errorImg: 'this.src="' + require('../assets/images/no_imgs.png') + '"'
+     }),
+  props:{
       goodsList:{
         default:[]
       },

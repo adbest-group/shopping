@@ -27,7 +27,7 @@
           </div>
         </div>
         <div v-if="!goodsList" class="search_no">
-          <div class="search_no_box">未找到相应的折扣信息...</div>
+          <div class="search_no_box">No corresponding discount information was found </div>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
     },
   computed: {
     ...mapGetters(['getPageCount']),
-    ...mapState(['hotWords','goodsList','hotGoods','malls','categorys','goodsPageIndex','goodsNotify']),
+    ...mapState(['hotWords','goodsList','hotGoods','malls','categorys','goodsPageIndex','goodsNotify','maxId','maxSyncTime']),
     flag(){
       if(this.$route.query.key){return false}
       else return true;
@@ -108,7 +108,7 @@
     this.intervalid = setInterval(() => {
         //原数据中没有 goodsList 或者 this.$route.query.key存在时 不求数据
         if(this.goodsList&&!this.$route.query.key){
-          this.getGoodsNotify(Object.assign({},this.$route.query,{id:this.goodsList[0].id,sync:this.goodsList[0].syncTime}));
+          this.getGoodsNotify(Object.assign({},this.$route.query,{id:this.maxId,sync:this.maxSyncTime}));
        }
      },autoFetchTime);
 

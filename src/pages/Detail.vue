@@ -12,7 +12,7 @@
           <div class="detail-info">
             <div class="picInfo">
               <div class="pic">
-                <div class="subpic"><img :src="goodsDetail.smallImageUrl"></div>
+                <div class="subpic"><img :src="goodsDetail.smallImageUrl" :onerror="errorImg"></div>
               </div>
               <a :href='goodsDetail.url' class="tobuywordBtn" @click="getBehaviorAdd({type:'2',url:$route.fullPath,goodId:goodsDetail.id})">Buy Now</a>
               <div class="rightmall">
@@ -57,6 +57,9 @@
 
   export default{
     name:'detail',
+    data: () => ({
+    errorImg: 'this.src="' + require('../assets/images/no_imgs.png') + '"'
+   }),
     components:{
       TopSearch,
       HotGoods,
