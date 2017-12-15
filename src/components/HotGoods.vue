@@ -1,5 +1,5 @@
 <template>
-  <div id="hotGoods">
+  <div id="hotGoods"  :class="searchBarFixed == true ? 'isFixed' :''">
     <div class="panel">
       <div class="rank">
         <div class="hd">
@@ -31,12 +31,41 @@
       },
     },
     data: () => ({
-    errorImg: 'this.src="' + require('../assets/images/no_imgs.png') + '"'
-  })
+    errorImg: 'this.src="' + require('../assets/images/no_imgs.png') + '"',
+    searchBarFixed:false,
+    offsetTop:0,//初始位置
+    flag:false// 延后获取初始位置的flag
+  }),
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
+    this.offsetTop = document.querySelector('#hotGoods').offsetTop
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.__resizeHanlderSize)
+  },
+  methods:{
+      handleScroll () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if(!this.flag){
+        this.flag=true
+        this.offsetTop = document.querySelector('#hotGoods').offsetTop
+      }
+      if (scrollTop > this.offsetTop+10) {
+        this.searchBarFixed = true
+      } else {
+        this.searchBarFixed = false
+      }
+    }
+  }
   }
 </script>
 
 <style>
-
+.isFixed{
+  position:fixed;
+  top:10px;
+  z-index:9999;
+  width: 300px;
+}
 </style>
 

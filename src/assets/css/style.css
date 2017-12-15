@@ -39,7 +39,7 @@
 .rank .product-item .pic .subpic img{ max-width: 60px; max-height: 60px; vertical-align: top}
 
 
-.crumbs{ color:#999; font-size:12px; height:40px; line-height:40px; border-bottom:1px solid #f2f2f2; background-color: #fff; padding-left: 10px}
+.crumbs{ color:#999; font-size:12px; height:30px; line-height:30px; border-bottom:1px solid #f2f2f2; padding-left: 10px}
 .crumbsCate{ display:inline}
 .crumbs .arrow,span.arrow{ font-family:"SimSun";padding:0 4px}
 .crumbs a{ color:#444; font-family: Arial}
@@ -84,3 +84,26 @@
 .recommending-commodities .item .subpic{ width: 100%; }
 .recommending-commodities .item .subpic img{width:100%;background-size:cover;height: 160px}
 .recommending-commodities .item p{margin-top:10px;font-size:13px;height: 34px;line-height: 17px;display: -webkit-box;  -webkit-box-orient: vertical;  -webkit-line-clamp: 2;overflow: hidden;color: #999999}
+
+/* 优惠码的快速点击效果 */
+.popular-stores .store{background: #fff;padding: 10px;height: 220px}
+.popular-stores .store .item{ width: 24.5%;height:100px;border: 1px solid #ebebeb;border-width: 0 1px 1px 0;float:left}
+.popular-stores .store .bottom{border-bottom-width: 0px}
+.popular-stores .store .item a{text-align: center;display: block;height: 100%;padding: 15px 0}
+.popular-stores .store .item img{max-width: 90%;max-height: 90%;vertical-align: middle;}
+.popular-stores .store .item:nth-child(4n){border-right-width: 0}
+
+/* 优惠码列表 */
+.coupons-items .coupons{background: #fff;display: inline-block;width:100%}
+.coupons-items .coupons .item{padding: 12px 10px;border-bottom: 1px solid #ebebeb;}
+.coupons-items .coupons .item .pic{  width: 160px;float: left;}
+.coupons-items .coupons .item .pic a{display: table-cell;vertical-align: middle;width: 145px;height: 100px;text-align: center;}
+.coupons-items .coupons .item .pic img{width: 120px; height: 60px;}
+.coupons-items .coupons .item table{width: 358px;float: left;}
+.coupons-items .coupons .item table td{ font-size: 13px;line-height: 24px;}
+.coupons-items .coupons .item table .coupons-left{text-align: left; width: 100px;vertical-align: top;}
+.coupons-items .coupons .item table .code{    color: #333;font-size: 13px;font-weight: bold;}
+.coupons-items .coupons .item table td a.cont {font-size: 17px;line-height: 24px;color: #003399;}
+.coupons-items .coupons .item .get-deal{width: 110px;float: right;padding: 25px 0 0 0px; text-align: center;color: #999;}
+.coupons-items .coupons .item .get-deal a{color: #fff;display: block;width: 95px;height: 30px;line-height: 30px;text-align: center;font-size: 15px;border: 0;border-radius: 2px;background: #ff2069}
+.coupons-items .coupons .item .get-deal a:hover{background-color: #e91e6f;}

@@ -19,7 +19,7 @@
     <div class="navBar clearfix">
       <div class="nav-inner">
         <ul>
-          <li class="on"><router-link :to="'/'">Home</router-link></li>
+          <li v-for="item in linkList" :key="item.name" :class="item.name===pathOn?'on':''"><router-link :to="item.link">{{item.name}}</router-link></li>
         </ul>
       </div>
     </div>
@@ -32,6 +32,7 @@
       data(){
         return {
           search:'',
+          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'}]
         }
       },
       props:{
@@ -41,6 +42,9 @@
         behaviorFun: {
           type: Function,
         },
+        pathOn:{
+          default:'Home'
+        }
       },
       methods: {    //绑定事件的关键代码
         changePage: function(key){
@@ -72,6 +76,3 @@
 
     }
 </script>
-<style>
-  .search{cursor: pointer}
-</style>

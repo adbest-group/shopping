@@ -20,6 +20,8 @@ export default {
     state.goodsDetail=data
   },
   [types.GET_HOT_GOODS] (state,  data ) {
+    // 如果这行还在 跟后台说一下。hotGoods 为5条
+    data.length=5
     state.hotGoods=data
   },
   [types.GET_MALLS] (state,  data ) {
@@ -54,6 +56,9 @@ export default {
   },
   [types.GET_MALL_HOT] (state,  data ) {
     state.mallHot=data
+  },
+  [types.GET_COUPONS] (state,  data ) {
+    state.coupons=data
   },
 }
 

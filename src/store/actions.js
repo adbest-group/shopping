@@ -114,3 +114,11 @@ export const getMallHot = ({ commit },payload) => {
     if(data.code==0)commit(types.GET_MALL_HOT, data.result.list)
   })
 }
+
+//获取今日 优惠券
+export const getCoupons = ({ commit }) => {
+  api.fetchCoupons().then(({data}) => {
+    if(data.code==0)commit(types.GET_COUPONS, data.result.list)
+  })
+}
+

@@ -7,7 +7,7 @@ import us from '../pages/Us.vue'
 import contactUs from '../pages/ContactUs.vue'
 import aboutUs from '../pages/AboutUs.vue'
 import disclaimer from '../pages/Disclaimer.vue'
-
+import coupons from '../pages/Coupons.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -43,6 +43,11 @@ export default new Router({
           component: disclaimer
         }
       ]
+    },
+    {
+      path: '/coupons/',
+      name: 'coupons',
+      component: coupons
     },
     {
       path: '*',

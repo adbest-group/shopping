@@ -28,6 +28,7 @@ const state = {
     contactUsFlag:false,//联系我们标记
     maybeLike:[],//猜你喜欢
     mallHot:[],//商城热门
+    coupons:[]//今日优惠券
 }
 
 export default new Vuex.Store({
