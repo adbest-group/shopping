@@ -53,6 +53,7 @@
   import Recommend from '../components/Recommend.vue'
   import { mapActions, mapState } from 'vuex'
   import {ignoreLink,changeTime,getOff} from '../utils/utils'
+  import {baseTitle} from '../utils/Global'
 
 
   export default{
@@ -98,6 +99,15 @@
       'getMaybeLike',
       'getMallHot',
     ])
+   },
+   watch:{
+    'goodsDetail' (to,from){
+      if(to){
+        document.title = to.title + ' | ' +baseTitle
+      }else{
+        document.title = baseTitle;
+      }
+    }
    }
   }
 </script>

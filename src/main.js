@@ -13,8 +13,9 @@ import global_ from './utils/Global.js'
 Vue.prototype.GLOBAL = global_
 Vue.directive('title', {
   inserted: function (el, binding) {
-    document.title = el.innerText
-    el.remove()
+    document.title = binding.value;
+    //document.title = el.innerText
+    //el.remove()
   }
 })
 Vue.component('icon', Icon);

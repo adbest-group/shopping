@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-title="title">
     <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd' pathOn='Coupons'></top-search>
     <div id="main" class="clearfix">
       <div id="sidebar">
@@ -24,10 +24,12 @@
   import PopularStores from '../components/PopularStores'
   import CouponsItems from '../components/CouponsItems'
   import { mapActions, mapState } from 'vuex'
+  import {baseTitle} from '../utils/Global'
 
   export default{
     name:'detail',
     data: () => ({
+      title:'Coupons | ' + baseTitle
    }),
     components:{
       TopSearch,

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-title="title">
     <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd'></top-search>
     <banner></banner>
     <div id="main" class="clearfix">
@@ -45,7 +45,7 @@
   import Paginate from 'vuejs-paginate'
   import qs from 'qs';
   import { mapActions, mapState,mapGetters } from 'vuex'
-  import { autoFetchTime, criticalNotifyNum } from '../utils/Global'
+  import { autoFetchTime, criticalNotifyNum,baseTitle } from '../utils/Global'
 
   export default{
   name:'index',
@@ -62,6 +62,7 @@
     data () {
       return {
         criticalNotifyNum: criticalNotifyNum,
+        title:baseTitle
       }
     },
     methods: {    //绑定事件的关键代码
@@ -120,6 +121,13 @@
       }
       else{
         this.getGoodsList(to.query);
+      }
+    },
+    'goodsNotify' (to,from) {
+      if(to&&to>criticalNotifyNum){
+        document.title = '(' + to + 'new entries) '+baseTitle;
+      }else{
+        document.title = baseTitle;
       }
     }
   },
