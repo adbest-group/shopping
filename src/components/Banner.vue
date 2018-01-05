@@ -1,7 +1,7 @@
 <template>
-	<div class="banner">
-		<swiper :options="swiperOption" ref="mySwiper" class="swiper">
-			<swiper-slide><img src="../assets/images/banner2.jpg"></swiper-slide> 
+	<div class="banner" @mouseover='stop' @mouseout='start'>
+		<swiper :options="swiperOption" ref="mySwiper" class="swiper" >
+			<swiper-slide><img src="../assets/images/banner2.jpg"></swiper-slide>
 			<swiper-slide><img src="../assets/images/banner.jpg" ></swiper-slide>
 			<div class="swiper-pagination"  slot="pagination"></div>
 	  </swiper>
@@ -20,7 +20,9 @@ export default {
     data() {
       return {
          swiperOption: {
-		  autoplay: true,// 自动播放
+           autoplay: {
+             delay: 3000,
+           },// 自动播放
           spaceBetween: 30,//滚动切换时的 两分页间隔
           loop: true,//循环
           pagination: {
@@ -30,7 +32,19 @@ export default {
         }
       }
     },
-    
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    methods:{
+      stop(){
+        this.swiper.autoplay.stop();
+      },
+      start(){
+        this.swiper.autoplay.start();
+      }
+    }
 }
 </script>
 
