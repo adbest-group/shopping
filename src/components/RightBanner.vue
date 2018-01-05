@@ -1,7 +1,6 @@
 <template>
 	<div class="right-banner"  @mouseover='stop' @mouseout='start'>
-		<swiper :options="swiperOption" ref="mySwiper" class="right-swiper" v-if="hotGoods.length!=0">
-      <swiper-slide v-for="item in hotGoods"><img :src="item.smallImageUrl"></swiper-slide>
+		<swiper :options="swiperOption" ref="mySwiper" class="right-swiper">
 			<swiper-slide ><img src="../assets/images/1.jpg"></swiper-slide>
 			<swiper-slide><img src="../assets/images/3.jpg"></swiper-slide>
 			<swiper-slide><img src="../assets/images/4.jpg" ></swiper-slide>
@@ -13,11 +12,6 @@
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-  props:{
-    hotGoods:{
-      default:[]
-    },
-  },
   components: {
     swiper,
     swiperSlide,
