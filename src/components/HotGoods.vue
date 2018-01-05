@@ -50,7 +50,7 @@
         this.flag=true
         this.offsetTop = document.querySelector('#hotGoods').offsetTop
       }
-      if (scrollTop > this.offsetTop+10) {
+      if (scrollTop > this.offsetTop+40) {
         this.searchBarFixed = true
       } else {
         this.searchBarFixed = false
@@ -63,7 +63,7 @@
 <style>
 .isFixed{
   position:fixed;
-  top:10px;
+  top:40px;
   z-index:9999;
   width: 300px;
 }

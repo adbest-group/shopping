@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="navBar clearfix">
+    <div id="navBar" :class="searchBarFixed == true ? 'isFixedNav navBar clearfix' :'navBar clearfix'">
       <div class="nav-inner">
         <ul>
           <li v-for="item in linkList" :key="item.name" :class="item.name===pathOn?'on':''"><router-link :to="item.link">{{item.name}}</router-link></li>
@@ -32,7 +32,10 @@
       data(){
         return {
           search:'',
-          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'}]
+          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'}],
+          searchBarFixed:false,
+          offsetTop:0,//初始位置
+          flag:false// 延后获取初始位置的flag
         }
       },
       props:{
@@ -64,6 +67,18 @@
           var d = createUrl(obj);
           this.$router.push({path:'/?'+d})
         },
+        handleScroll () {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          if(!this.flag){
+            this.flag=true
+            this.offsetTop = document.querySelector('#navBar').offsetTop
+          }
+          if (scrollTop > this.offsetTop+10) {
+            this.searchBarFixed = true
+          } else {
+            this.searchBarFixed = false
+          }
+        }
       },
       watch:{
         '$route' (to, from) {
@@ -72,7 +87,19 @@
       },
       created () {
         this.search=this.$route.query.key;
-      }
+      },
+      mounted () {
+        window.addEventListener('scroll', this.handleScroll)
+        this.offsetTop = document.querySelector('#navBar').offsetTop
+      },
 
     }
 </script>
+<style>
+  .isFixedNav{
+    position:fixed;
+    top:0px;
+    z-index:9999;
+    width: 100%;
+  }
+</style>
