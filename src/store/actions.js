@@ -122,3 +122,34 @@ export const getCoupons = ({ commit }) => {
   })
 }
 
+//获取gifts for all
+export const getGiftsForAll = ({ commit }) => {
+  api.fetchGoodsList({category:'Gifts For All'}).then(({data}) => {
+    if(data.code==0)commit(types.GET_GIFTS_FOR_ALL, data.result.list)
+  })
+}
+//获取gifts for her
+export const getGiftsForHer = ({ commit }) => {
+  api.fetchGoodsList({category:'Gifts For Her'}).then(({data}) => {
+    if(data.code==0)commit(types.GET_GIFTS_FOR_HER, data.result.list)
+  })
+}
+//获取gifts for him
+export const getGiftsForHim = ({ commit }) => {
+  api.fetchGoodsList({category:'Gifts For Him'}).then(({data}) => {
+    if(data.code==0)commit(types.GET_GIFTS_FOR_HIM, data.result.list)
+  })
+}
+//获取gifts for kids
+export const getGiftsForKids = ({ commit }) => {
+  api.fetchGoodsList({category:'Gifts For Kids'}).then(({data}) => {
+    if(data.code==0)commit(types.GET_GIFTS_FOR_KIDS, data.result.list)
+  })
+}
+//获取gifts for senior
+export const getGiftsForSenior = ({ commit }) => {
+  api.fetchGoodsList({category:'Gifts For Seniors'}).then(({data}) => {
+    if(data.code==0)commit(types.GET_GIFTS_FOR_SENIOR, data.result.list)
+  })
+}
+
