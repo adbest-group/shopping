@@ -61,7 +61,7 @@ export default {
     state.coupons=data
   },
   [types.GET_GIFTS_FOR_ALL] (state,  data ) {
-    data.length=8;
+    data.length=4;
     state.giftsForAll=data
   },
   [types.GET_GIFTS_FOR_HER] (state,  data ) {
