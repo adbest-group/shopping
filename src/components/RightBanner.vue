@@ -52,4 +52,5 @@ export default {
 	.right-banner{ width: 300px; height: 250px;margin-bottom: 15px}
 	.right-banner img{ width: 100%; vertical-align: top}
 	.right-swiper{width: 100%;height: 100%}
+  .swiper-pagination-bullet {border:1px solid #fff;}
 </style>

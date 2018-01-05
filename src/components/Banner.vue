@@ -52,4 +52,5 @@ export default {
 	.banner{ width: 90%; max-width: 1110px; min-width: 960px; margin: 15px auto;height: 285px}
 	.banner img{ width: 100%; vertical-align: top}
 	.swiper{width: 100%;height: 100%}
+  .swiper-pagination-bullet {border:1px solid #fff;}
 </style>
