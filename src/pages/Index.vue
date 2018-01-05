@@ -1,7 +1,6 @@
 <template>
   <div v-title="title">
     <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd'></top-search>
-    <banner></banner>
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>

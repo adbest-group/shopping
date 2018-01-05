@@ -8,6 +8,7 @@ import contactUs from '../pages/ContactUs.vue'
 import aboutUs from '../pages/AboutUs.vue'
 import disclaimer from '../pages/Disclaimer.vue'
 import coupons from '../pages/Coupons.vue'
+import gifts from '../pages/Gifts.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +49,11 @@ export default new Router({
       path: '/coupons/',
       name: 'coupons',
       component: coupons
+    },
+    {
+      path: '/gifts/',
+      name: 'gifts',
+      component: gifts
     },
     {
       path: '*',

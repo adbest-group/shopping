@@ -32,7 +32,7 @@
       data(){
         return {
           search:'',
-          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'}],
+          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'},{link:"/gifts",name:'Gifts'}],
           searchBarFixed:false,
           offsetTop:0,//初始位置
           flag:false// 延后获取初始位置的flag

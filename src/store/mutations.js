@@ -60,5 +60,25 @@ export default {
   [types.GET_COUPONS] (state,  data ) {
     state.coupons=data
   },
+  [types.GET_GIFTS_FOR_ALL] (state,  data ) {
+    data.length=8;
+    state.giftsForAll=data
+  },
+  [types.GET_GIFTS_FOR_HER] (state,  data ) {
+    data.length=8;
+    state.giftsForHer=data
+  },
+  [types.GET_GIFTS_FOR_HIM] (state,  data ) {
+    data.length=8;
+    state.giftsForHim=data
+  },
+  [types.GET_GIFTS_FOR_KIDS] (state,  data ) {
+    data.length=8;
+    state.giftsForKids=data
+  },
+  [types.GET_GIFTS_FOR_SENIOR] (state,  data ) {
+    data.length=8;
+    state.giftsForSenior=data
+  },
 }
 
