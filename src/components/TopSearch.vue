@@ -89,6 +89,7 @@
         this.search=this.$route.query.key;
       },
       mounted () {
+        this.handleScroll();
         window.addEventListener('scroll', this.handleScroll)
         this.offsetTop = document.querySelector('#navBar').offsetTop
       },
