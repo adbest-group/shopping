@@ -166,7 +166,7 @@
     },
     'goodsNotify' (to,from) {
       if(to&&to>criticalNotifyNum){
-        document.title = '(' + to + 'new entries) '+baseTitle;
+        document.title = '(' + to + ' new entries) '+baseTitle;
       }else{
         document.title = baseTitle;
       }
