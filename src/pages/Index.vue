@@ -15,7 +15,16 @@
         </a>
         <div v-if="goodsList">
           <goods-items :goodsList='goodsList' :behaviorFun='getBehaviorAdd' :getThumbsAdd="getThumbsAdd"></goods-items>
-          <div class="pageBar clearfix">
+          <div class="load" v-if="loadFlag" >
+            <div class="loading">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="pageBar clearfix" id='pageBar'>
             <paginate
               :page-range="5"
               :page-count="getPageCount"
@@ -62,7 +71,10 @@
     data () {
       return {
         criticalNotifyNum: criticalNotifyNum,
-        title:baseTitle
+        title:baseTitle,
+        loadFlag:false,
+        offsetTop:0,
+        addPage:0,
       }
     },
     methods: {    //绑定事件的关键代码
@@ -82,8 +94,35 @@
         'getGoodsNotify',
         'getSearchList',
         'getBehaviorAdd',
-        'getThumbsAdd'
-        ])
+        'getThumbsAdd',
+        'getGoodsListScroll',
+        'getSearchListScroll'
+        ]),
+      handleScroll () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        this.offsetTop = document.querySelector('#pageBar').offsetTop
+        if(scrollTop > this.offsetTop-600&&!this.loadFlag){
+           const page = parseInt(this.$route.query.page||1)
+           if(this.addPage>2||(page +this.addPage)%4===0){
+             return
+           }
+           this.addPage++
+           const newPage = page +this.addPage
+           this.loadFlag = true;
+           const newParam = Object.assign({},this.$route.query,{page:newPage})
+           if(this.$route.query){
+              this.getSearchListScroll(newParam).then(()=>{
+                  setTimeout(()=>{ this.loadFlag = false},1000)
+              })
+           }else{
+              this.getGoodsListScroll(newParam).then(()=>{
+                  setTimeout(()=>{ this.loadFlag = false},1000)
+              })
+           }
+           
+        }
+       
+      }
     },
   computed: {
     ...mapGetters(['getPageCount']),
@@ -117,9 +156,11 @@
   watch:{
     '$route' (to, from) {
       if(to.query.key){
+        this.addPage = 0
         this.getSearchList(to.query);
       }
       else{
+        this.addPage = 0
         this.getGoodsList(to.query);
       }
     },
@@ -134,5 +175,9 @@
   beforeDestroy () {
     clearInterval(this.intervalid)
     },
+  mounted () {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
+
 </script>

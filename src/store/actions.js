@@ -153,3 +153,17 @@ export const getGiftsForSenior = ({ commit }) => {
   })
 }
 
+//滚动 动态获取数据
+export const getGoodsListScroll = ({ commit },payload) => {
+  api.fetchGoodsList(payload).then(({data}) => {
+    if(data.code==0){
+      // 添加到新页面
+      commit(types.GET_GOODS_LIST_S, data.result)
+    }
+  })
+}
+export const getSearchListScroll = ({ commit },payload) => {
+  api.fetchSearchList(payload).then(({data}) => {
+    if(data.code==0)commit(types.GET_GOODS_LIST_S, data.result)
+  })
+}

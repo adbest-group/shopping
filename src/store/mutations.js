@@ -12,6 +12,13 @@ export default {
     state.goodsNotify=0;
     state.goodsPageIndex=parseInt(data.pageIndex);
   },
+  [types.GET_GOODS_LIST_S] (state,  data ) {
+    state.goodsList=state.goodsList.concat(data.list);
+    state.goodsTotalCount=data.totalCount;
+    state.goodsPageSize=data.pageSize;
+    state.goodsNotify=0;
+    state.goodsPageIndex=parseInt(data.pageIndex);
+  },
   [types.GET_MAX_ID_SYNC] (state,  data ) {
     state.maxId=data.maxId;
     state.maxSyncTime=data.maxSyncTime;
