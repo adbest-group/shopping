@@ -22,11 +22,11 @@
 			<div class="f-qrcode">
     			<a class="f-qrcode-pic" href="#">
 		        	<p><icon name="facebook" scale="3" ></icon><span>facebook</span></p>
-    				<span><img src="../assets/images/code.png" class="code-pic"></span>
+    				<span><img src="../assets/images/facebook.png" class="code-pic"></span>
     			</a>
          		 <a class="f-qrcode-pic" href="#">
 		        	<p><icon name="twitter" scale="3" ></icon><span>twitter</span></p>
-    				<span><img src="../assets/images/code.png" class="code-pic"></span>
+    				<span><img src="../assets/images/twiter.png" class="code-pic"></span>
     			</a>
            		 <!-- <div class="f-qrcode-pic">
 		        	<p><icon name="weibo" scale="3" ></icon><span>weibo</span></p>
