@@ -26,6 +26,7 @@
             <upvote :getThumbsAdd="getThumbsAdd" :id="p.id"></upvote>
             <span class="upvoteNum">{{p.thumbs}}</span>
           </div>
+          <div class="goodSource"> from {{dealDomain(p.goodSourceName)}}</div>
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@
 
 </template>
 <script>
-  import {changeTime,getOff} from '../utils/utils';
+  import {changeTime,getOff,dealDomain} from '../utils/utils';
   import upvote from '../components/Upvote.vue'
   export default {
     name:'goodItems',
@@ -76,6 +77,7 @@
       getOff:function(price,originalPrice){
         return getOff(price,originalPrice);
       },
+      dealDomain:(domain) => dealDomain(domain)
     }
   }
 </script>

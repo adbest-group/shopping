@@ -28,6 +28,7 @@
 .detail-upvote{position: absolute;left:120px;top:375px;cursor: pointer}
 .detail-upvote .upvoteNum{position: absolute;left:45px;top:0px;line-height: 55px ;color: #aaa}
 .detail-upvote .upvoteNum:hover{color:#eb7350}
+.product-item .goodSource{position: absolute;left:290px;bottom:18px;font-size:12px;line-height: 25px ;color: #aaa}
 
 
 .rank .hd{ height: 25px; line-height: 25px;padding: 8px; background-color: #fff; border-bottom: 1px solid #dedede}
