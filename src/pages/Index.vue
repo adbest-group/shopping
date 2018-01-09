@@ -26,10 +26,10 @@
           </div>
           <div class="pageBar clearfix" id='pageBar'>
             <paginate
+              ref="paginate"
               :page-range="5"
               :page-count="getPageCount"
               :click-handler="changePage"
-              :force-page="goodsPageIndex-1"
               :prev-text="'&lt;&lt;'"
               :next-text="'&gt;&gt;'">
             </paginate>
@@ -110,7 +110,7 @@
            const newPage = page +this.addPage
            this.loadFlag = true;
            const newParam = Object.assign({},this.$route.query,{page:newPage})
-           if(this.$route.query){
+           if(this.$route.query.key){
               this.getSearchListScroll(newParam).then(()=>{
                   setTimeout(()=>{ this.loadFlag = false},1000)
               })
@@ -119,10 +119,14 @@
                   setTimeout(()=>{ this.loadFlag = false},1000)
               })
            }
-           
+
         }
-       
+
+      },
+      changePageIndex(){
+        this.$refs.paginate.selected = this.currentPage
       }
+
     },
   computed: {
     ...mapGetters(['getPageCount']),
@@ -130,6 +134,9 @@
     flag(){
       if(this.$route.query.key){return false}
       else return true;
+    },
+    currentPage(){
+      return this.goodsPageIndex-1
     }
   },
   created () {
@@ -170,10 +177,14 @@
       }else{
         document.title = baseTitle;
       }
+    },
+    currentPage(){
+      this.changePageIndex()
     }
   },
   beforeDestroy () {
     clearInterval(this.intervalid)
+    window.removeEventListener('scroll', this.handleScroll)
     },
   mounted () {
       window.addEventListener('scroll', this.handleScroll)
