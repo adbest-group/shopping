@@ -9,18 +9,23 @@
               <input type="text" class="search-txt" v-model="search" @keyup.enter="doSearch">
               <span class="search-btn" @click="doSearch"></span>
             </div>
-            <div class="hotword clearfix">
+            <!-- <div class="hotword clearfix">
               <a v-for="(h,index) in hotWords" v-bind:class="{on:index%2 != 0}" @click="changePage(h.hotword)">{{h.hotword}}</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
     <div id="navBar" :class="searchBarFixed == true ? 'isFixedNav navBar clearfix' :'navBar clearfix'">
-      <div class="nav-inner">
+      <li class="nav-inner">
         <ul>
           <li v-for="item in linkList" :key="item.name" :class="item.name===pathOn?'on':''"><router-link :to="item.link">{{item.name}}</router-link></li>
         </ul>
+        <div class="headBar search-fixed" style="float:right;margin-right: 100px;height: 34px;">
+          <input type="text" class="search-txt" v-model="search" @keyup.enter="doSearch" style="width: 150px;height: 30px;">
+          <span class="search-btn2" @click="doSearch"></span>
+        </div>
+      </li>
       </div>
     </div>
   </div>
@@ -32,7 +37,7 @@
       data(){
         return {
           search:'',
-          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'},{link:"/gifts",name:'Gifts'}],
+          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'},{link:"/gifts",name:'Gifts'},{link:"/?category=Beauty&page=1",name:'Beauty'},{link:"/?category=Clothing,%20Jewelry%20%26%20Bags&page=1",name:'Clothing'},{link:"/?category=Kids&page=1",name:'kids'}],
           searchBarFixed:false,
           offsetTop:0,//初始位置
           flag:false// 延后获取初始位置的flag
@@ -102,5 +107,11 @@
     top:0px;
     z-index:9999;
     width: 100%;
+  }
+  .search-fixed{
+    display: none;
+  }
+  .isFixedNav .search-fixed{
+    display: block;
   }
 </style>
