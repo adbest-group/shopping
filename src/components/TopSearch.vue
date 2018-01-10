@@ -37,7 +37,7 @@
       data(){
         return {
           search:'',
-          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'},{link:"/gifts",name:'Gifts'},{link:"/?category=Beauty&page=1",name:'Beauty'},{link:"/?category=Clothing,%20Jewelry%20%26%20Bags&page=1",name:'Clothing'},{link:"/?category=Kids&page=1",name:'kids'}],
+          linkList:[{link:"/",name:'Home'},{link:"/coupons",name:'Coupons'},{link:"/gifts",name:'Gifts'},{link:"/?category=Beauty&page=1",name:'Beauty'},{link:"/?category=Clothing,%20Jewelry%20%26%20Bags&page=1",name:'Clothing'},{link:"/?category=Kids&page=1",name:'Kids'}],
           searchBarFixed:false,
           offsetTop:0,//初始位置
           flag:false// 延后获取初始位置的flag

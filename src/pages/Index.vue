@@ -28,7 +28,7 @@
           <div class="pageBar clearfix" id='pageBar'>
             <paginate
               ref="paginate"
-              :page-range="5"
+              :page-range="3"
               :page-count="getPageCount"
               :click-handler="changePage"
               :prev-text="'&lt;&lt;'"
