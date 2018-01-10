@@ -21,7 +21,7 @@ export default {
       return {
          swiperOption: {
            autoplay: {
-             delay: 3000,
+             delay: 8000,
            },// 自动播放
           spaceBetween: 30,//滚动切换时的 两分页间隔
           loop: true,//循环

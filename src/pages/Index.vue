@@ -1,7 +1,8 @@
 <template>
   <div v-title="title">
     <top-search :hotWords='hotWords' :behaviorFun='getBehaviorAdd'></top-search>
-    <banner></banner>
+    <!-- <banner></banner> -->
+    <banner-hot :list='hotGoods' :behaviorFun='getBehaviorAdd'></banner-hot>
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
@@ -45,7 +46,7 @@
 </template>
 <script>
   import TopSearch from '../components/TopSearch.vue'
-  import Banner from '../components/Banner.vue'
+  import BannerHot from '../components/BannerHot.vue'
   import Navigation from '../components/Navigation.vue'
   import GoodsItems from '../components/GoodsItems.vue'
   import HotGoods from '../components/HotGoods.vue'
@@ -60,7 +61,7 @@
   name:'index',
   components:{
     TopSearch,
-    Banner,
+    BannerHot,
     Navigation,
     GoodsItems,
     HotGoods,
