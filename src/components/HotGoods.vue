@@ -51,7 +51,8 @@
         this.flag=true
         this.offsetTop = document.querySelector('#hotGoods').offsetTop
       }
-      if (scrollTop > this.offsetTop+40) {
+      console.log(this.offsetTop+":"+scrollTop);
+      if (scrollTop > this.offsetTop - 40) {
         this.searchBarFixed = true
       } else {
         this.searchBarFixed = false

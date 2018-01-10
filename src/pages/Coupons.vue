@@ -4,6 +4,7 @@
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
+        <right-stores></right-stores>
         <hot-goods :hotGoods='hotGoods'></hot-goods>
       </div>
       <div id="content">
@@ -17,6 +18,7 @@
 </template>
 <script>
   import TopSearch from '../components/TopSearch.vue'
+  import RightStores from '../components/RightStores.vue'
   import HotGoods from '../components/HotGoods.vue'
   import gtFooter from '../components/Footer.vue'
   import RightBanner from '../components/RightBanner.vue'
@@ -33,6 +35,7 @@
    }),
     components:{
       TopSearch,
+      RightStores,
       HotGoods,
       RightBanner,
       gtFooter,

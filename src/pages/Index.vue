@@ -6,6 +6,7 @@
     <div id="main" class="clearfix">
       <div id="sidebar">
         <right-banner></right-banner>
+        <right-stores></right-stores>
         <hot-goods :hotGoods='hotGoods' :behaviorFun='getBehaviorAdd'></hot-goods>
       </div>
       <div id="content">
@@ -49,6 +50,7 @@
   import BannerHot from '../components/BannerHot.vue'
   import Navigation from '../components/Navigation.vue'
   import GoodsItems from '../components/GoodsItems.vue'
+  import RightStores from '../components/RightStores.vue'
   import HotGoods from '../components/HotGoods.vue'
   import RightBanner from '../components/RightBanner.vue'
   import gtFooter from '../components/Footer.vue'
@@ -64,6 +66,7 @@
     BannerHot,
     Navigation,
     GoodsItems,
+    RightStores,
     HotGoods,
     RightBanner,
     gtFooter,

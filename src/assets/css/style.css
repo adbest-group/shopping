@@ -141,3 +141,16 @@
 .banner-hot .item .subpic img{width:100%;background-size:cover;height: auto;}
 .banner-hot .item p{visibility:visible;	padding:4px 4% 3px 4%;width:92%;font-size:12px;height: 34px;line-height: 17px;position:absolute;bottom:0px;display: -webkit-box;  -webkit-box-orient: vertical;  -webkit-line-clamp: 2;overflow: hidden;color: #fff;background:#000;opacity:.7;filter:alpha(opacity=70);}
 .banner-hot .item:hover p{visibility: visible;}
+
+/* 优惠码的快速点击效果 */
+.right-stores .store{width:100%;background:#fff;}
+.right-stores .store .item{ width: 50%;float:left;}
+.right-stores .store .item a{text-align: center;display: block;height: 70px;border-right:1px solid #ebebeb;border-bottom:1px solid #ebebeb;}
+.right-stores .store .item img{max-width: 90%;max-height: 90%;vertical-align: middle;}
+.right-stores .store .item:nth-child(2n) a{border-right:none;}
+
+
+
+
+
+
