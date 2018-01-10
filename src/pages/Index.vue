@@ -9,7 +9,7 @@
         <hot-goods :hotGoods='hotGoods' :behaviorFun='getBehaviorAdd'></hot-goods>
       </div>
       <div id="content">
-        <navigation :malls="malls" :categorys='categorys' v-if="flag"></navigation>
+        <!-- <navigation :malls="malls" :categorys='categorys' v-if="flag"></navigation> -->
         <a class="feednotify" v-if="goodsNotify>criticalNotifyNum"  @click="getGoodsList($route.query)">
           <span>●</span>
           <span>There are {{goodsNotify}} new entries for this view ></span>
