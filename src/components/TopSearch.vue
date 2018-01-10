@@ -19,7 +19,7 @@
     <div id="navBar" :class="searchBarFixed == true ? 'isFixedNav navBar clearfix' :'navBar clearfix'">
       <li class="nav-inner">
         <ul>
-          <li v-for="item in linkList" :key="item.name" :class="item.name===pathOn?'on':''"><router-link :to="item.link">{{item.name}}</router-link></li>
+          <li v-for="item in linkList" :key="item.name" :class="checkMenuAndCategory(queryCategory,item.name) || (!queryCategory && item.name===pathOn)?'on':''"><router-link :to="item.link">{{item.name}}</router-link></li>
         </ul>
         <div class="headBar search-fixed" style="float:right;margin-right: 100px;height: 34px;">
           <input type="text" class="search-txt" v-model="search" @keyup.enter="doSearch" style="width: 150px;height: 30px;">
@@ -54,6 +54,11 @@
           default:'Home'
         }
       },
+      computed:{
+        queryCategory(){
+          return this.$route.query.category;
+        }
+      },
       methods: {    //绑定事件的关键代码
         changePage: function(key){
           var d = createUrl({page:1,key:key});
@@ -83,6 +88,9 @@
           } else {
             this.searchBarFixed = false
           }
+        },
+        checkMenuAndCategory(category,menu){
+          return category&&menu&&(category.toLowerCase().indexOf(menu.toLowerCase()) > -1)
         }
       },
       watch:{
@@ -97,6 +105,8 @@
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll)
         this.offsetTop = document.querySelector('#navBar').offsetTop
+
+        //console.log(queryCategory);
       },
 
     }
